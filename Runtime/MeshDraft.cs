@@ -53,15 +53,14 @@ namespace ProceduralToolkit
             mesh.GetUVs(3, uv4);
             mesh.GetColors(colors);
         }
+        
+        const Vector3 ZERO = new Vector3(0, 0, 0);
 
         /// <summary>
         /// Adds vertex data from the <paramref name="draft"/>
         /// </summary>
-        public MeshDraft Add(MeshDraft draft, Vector3 position = null)
+        public MeshDraft Add(MeshDraft draft, Vector3 position = ZERO)
         {
-            if (position)
-                position = Vector3.zero;
-            
             if (draft == null) throw new ArgumentNullException(nameof(draft));
 
             for (var i = 0; i < draft.triangles.Count; i++)
