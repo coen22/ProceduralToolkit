@@ -54,12 +54,19 @@ namespace ProceduralToolkit
             mesh.GetColors(colors);
         }
         
-        const Vector3 ZERO = new Vector3(0, 0, 0);
 
         /// <summary>
         /// Adds vertex data from the <paramref name="draft"/>
         /// </summary>
-        public MeshDraft Add(MeshDraft draft, Vector3 position = ZERO)
+        public MeshDraft Add(MeshDraft draft)
+        {
+            return Add(draft, Vector3.zero);
+        }
+        
+        /// <summary>
+        /// Adds vertex data from the <paramref name="draft"/>
+        /// </summary>
+        public MeshDraft Add(MeshDraft draft, Vector3 position)
         {
             if (draft == null) throw new ArgumentNullException(nameof(draft));
 
