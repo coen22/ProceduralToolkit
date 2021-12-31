@@ -57,8 +57,11 @@ namespace ProceduralToolkit
         /// <summary>
         /// Adds vertex data from the <paramref name="draft"/>
         /// </summary>
-        public MeshDraft Add(MeshDraft draft, Vector3 position)
+        public MeshDraft Add(MeshDraft draft, Vector3 position = null)
         {
+            if (position)
+                position = Vector3.zero;
+            
             if (draft == null) throw new ArgumentNullException(nameof(draft));
 
             for (var i = 0; i < draft.triangles.Count; i++)
