@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
@@ -56,7 +57,7 @@ namespace ProceduralToolkit
         /// <summary>
         /// Adds vertex data from the <paramref name="draft"/>
         /// </summary>
-        public MeshDraft Add(MeshDraft draft)
+        public MeshDraft Add(MeshDraft draft, Vector3 position)
         {
             if (draft == null) throw new ArgumentNullException(nameof(draft));
 
@@ -64,7 +65,10 @@ namespace ProceduralToolkit
             {
                 triangles.Add(draft.triangles[i] + vertices.Count);
             }
-            vertices.AddRange(draft.vertices);
+            
+            var verts = draft.vertices.Select(x => x + position);
+            
+            vertices.AddRange(verts);
             normals.AddRange(draft.normals);
             tangents.AddRange(draft.tangents);
             uv.AddRange(draft.uv);
