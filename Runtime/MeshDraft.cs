@@ -57,7 +57,7 @@ namespace ProceduralToolkit
         /// <summary>
         /// Adds vertex data from the <paramref name="draft"/>
         /// </summary>
-        public MeshDraft Add(MeshDraft draft, Vector3 position = Vector3.zero)
+        public MeshDraft Add(MeshDraft draft, Vector3 position)
         {
             if (draft == null) throw new ArgumentNullException(nameof(draft));
 
